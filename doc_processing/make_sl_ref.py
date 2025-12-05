@@ -5,7 +5,9 @@ import time
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
-load_dotenv()  # Load .env file
+# Load .env file from project root
+dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+load_dotenv(dotenv_path)
 
 COMMAND_LIST_FILE = 'command_list.txt'
 CHUNKS_FILE = 'M4300_CLI_EN_chunks.jsonl'

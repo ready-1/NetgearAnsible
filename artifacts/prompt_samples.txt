@@ -1,0 +1,73 @@
+➜  doc_processing git:(main) ✗ ssh admin@172.29.10.4
+admin@172.29.10.4's password: 
+
+(SW-GRN-ENG-BROADCAST-A) >en
+
+(SW-GRN-ENG-BROADCAST-A) #configure
+
+(SW-GRN-ENG-BROADCAST-A) (Config)#interface 1/0/1
+
+(SW-GRN-ENG-BROADCAST-A) (Interface 1/0/1)#vlan
+
+Command not found / Incomplete command. Use ? to list commands.
+
+(SW-GRN-ENG-BROADCAST-A) (Interface 1/0/1)#exit
+
+(SW-GRN-ENG-BROADCAST-A) (Config)#interface 1/0/1 
+
+(SW-GRN-ENG-BROADCAST-A) (Interface 1/0/1)#?
+
+addport                  Add this port to a port-channel.
+authentication           Configure authentication manager parameters.
+auto-negotiate           Enables/Disables automatic negotiation on a port.
+auto-voip                Configure auto-VoIP parameters.
+autostate                Enables Auto-State for an interface, Use no form to
+                         disable.
+bandwidth                Configure the maximum egress traffic bandwidth.
+classofservice           Configure Class of Service parameters.
+cos-queue                Configure the COS queue parameters.
+dampening                Enable or disable dampening.
+datacenter-bridging      Configure to enter into Datacenter-Bridging mode.
+deleteport               Delete this port from a port-channel.
+description              Add description to the interface.
+dhcp                     Configure DHCP L2 Relay parameters.
+do                       Run Privileged Exec mode commands.
+dot1x                    Configure 802.1x authentication.
+dvlan-tunnel             Configure double VLAN tunneling parameters.
+encapsulation            Configure interface link layer encapsulation type.
+exit                     To exit from the mode.
+flowcontrol              Configure flowcontrol storm-control features.
+green-mode               Configure Green Ethernet
+hardware                 Configures a 40G port as 4x10G or 1x40G.
+                  
+(SW-GRN-ENG-BROADCAST-A) (Interface 1/0/1)#exit
+
+(SW-GRN-ENG-BROADCAST-A) (Config)#exit
+
+(SW-GRN-ENG-BROADCAST-A) #vlan database
+
+(SW-GRN-ENG-BROADCAST-A) (Vlan)#?
+
+do                       Run Privileged Exec mode commands.
+exit                     To exit from the mode.
+help                     Display help for various special keys.
+protocol                 Configure the Protocols associated with particular
+                         Group Ids.
+set                      Configure switch options and settings.
+show                     Display Switch Options and Settings.
+vlan                     Create a new VLAN or delete an existing VLAN.
+
+(SW-GRN-ENG-BROADCAST-A) (Vlan)#
+(SW-GRN-ENG-BROADCAST-A) (Vlan)#exit
+
+(SW-GRN-ENG-BROADCAST-A) #terminal
+
+Command not found / Incomplete command. Use ? to list commands.
+
+(SW-GRN-ENG-BROADCAST-A) #exit
+
+(SW-GRN-ENG-BROADCAST-A) >exit
+                           ^
+% Invalid input detected at '^' marker.
+
+(SW-GRN-ENG-BROADCAST-A) >quitConnection to 172.29.10.4 closed.

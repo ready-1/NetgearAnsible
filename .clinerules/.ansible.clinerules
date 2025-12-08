@@ -1,0 +1,23 @@
+### .clinerules for Grok-Code-Fast-1 in Cline
+
+description: Optimize for speed/accuracy in Plan (planning, no edits) and Act (execution) modes. Address looping by limiting verbosity; enforce direct Grok-style prompts.
+
+author: Grok-assisted synthesis
+version: 1.1
+tags: ["grok", "plan-mode", "act-mode", "performance"]
+globs: ["*"]
+
+1. **Prompt Conciseness**: Cap initial prompts at 150 words; summarize goals upfront. In Plan, focus on 3-5 key steps max to avoid loops. Example: "Plan VLAN module: 1. API endpoints, 2. Idempotency checks, 3. Error paths." For <50 word queries, allow flexible length.
+
+2. **Mode-Specific Guardrails**: Plan: No tool calls/edits; output bullet-plan only. If >3 reflections, auto-compact and halt for user input (skip halt on <50 word queries). Act: Limit to one action/file per response; verify with dry-run sims.
+
+3. **Context Tools**: Pre-load Memory Bank with project constants (e.g., API bases, naming conventions). @mention files narrowly in Act. Trigger Auto Compact at 70% token bar to maintain speed.
+
+4. **Accuracy Boosts**: Require step-by-step justification in Plan, backed by Memory Bank refs. In Act, always diff-preview changes; flag unverified assumptions as "Guess: [reason]—confirm?"
+
+5. **Loop Prevention**: If response repeats ideas, self-interrupt with "Loop detected—summarize and proceed?" Lock plans after 2 iterations unless new info. For <50 word queries, cap at 1 interrupt.
+
+6. **Grok Alignment**: Use direct, wit-free language in internal thinking. Prioritize minimal diffs for correctness. Post-task: Reflect briefly on adherence, suggest rule tweaks if accuracy dips below 90%.
+
+Trigger: All tasks using grok-code-fast-1.
+Constraint: Scale intensity for simple queries (<50 words)—apply core rules but relax caps on steps/reflections.

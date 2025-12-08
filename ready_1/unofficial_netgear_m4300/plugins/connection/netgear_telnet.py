@@ -74,23 +74,23 @@ from ansible.utils.display import Display
 
 display = Display()
 
+# Import netmiko at module level to avoid import issues
+try:
+    from netmiko import ConnectHandler
+    from netmiko.exceptions import NetMikoTimeoutException, NetMikoAuthenticationException
+    HAS_NETMIKO = True
+except ImportError:
+    ConnectHandler = None
+    NetMikoTimeoutException = None
+    NetMikoAuthenticationException = None
+    HAS_NETMIKO = False
+
 
 class Connection(ConnectionBase):
     """Netgear Telnet connection plugin"""
 
     transport = 'netgear_telnet'
     has_pipelining = False
-
-    # Import netmiko at class level to avoid import issues
-    try:
-        from netmiko import ConnectHandler
-        from netmiko.exceptions import NetMikoTimeoutException, NetMikoAuthenticationException
-        HAS_NETMIKO = True
-    except ImportError:
-        ConnectHandler = None
-        NetMikoTimeoutException = None
-        NetMikoAuthenticationException = None
-        HAS_NETMIKO = False
 
     def __init__(self, play_context, new_stdin, *args, **kwargs):
         super(Connection, self).__init__(play_context, new_stdin, *args, **kwargs)

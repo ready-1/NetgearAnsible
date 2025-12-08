@@ -129,3 +129,6 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Ansible Vault
+.vault_pass
